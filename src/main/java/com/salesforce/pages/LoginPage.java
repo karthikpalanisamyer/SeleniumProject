@@ -7,8 +7,6 @@ public class LoginPage extends ProjectSpecificMethods{
 	
 	
 	public LoginPage enterUsername(String data) {
-		//driver.findElementById(properties.getProperty("LoginPage.Username.Id")).clear();
-		//driver.findElementById(properties.getProperty("LoginPage.Username.Id")).sendKeys(data);
 		clearAndType(locateElement(Locators.ID, properties.getProperty("LoginPage.Username.Id")), data);
 		reportStep(data+" entered successfully","pass");
 		return this;

@@ -23,7 +23,7 @@ public class TC002_CreateWorkTypeGroup extends ProjectSpecificMethods{
 		.enterPassword(password)
 		.clickLogin()
 		.clickToggleMenu()
-		.clickViewAll()
+		.clickViewAll_new()
 		.searchWorkTypeGroups()
 		.clickWorkTypeGroups()
 		.clickDropdownIcon()

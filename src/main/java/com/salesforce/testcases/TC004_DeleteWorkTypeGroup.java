@@ -23,7 +23,7 @@ public class TC004_DeleteWorkTypeGroup extends ProjectSpecificMethods{
 		.enterPassword(password)
 		.clickLogin()
 		.clickToggleMenu()
-		.clickViewAll()
+		.clickViewAll_new()
 		.searchWorkTypeGroups()
 		.clickWorkTypeGroups()
 		.clickWorkTypeGroupTab()

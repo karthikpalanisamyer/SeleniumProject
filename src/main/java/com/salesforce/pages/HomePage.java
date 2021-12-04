@@ -41,16 +41,7 @@ public class HomePage extends ProjectSpecificMethods{
 	}
 
 
-	public HomePage clickToggleMenu() {
-
-
-		click(locateElement(Locators.XPATH,properties.getProperty("HomePage.ToggleMenu.Xpath")));
-		reportStep("Toggle Menu clicked successfully", "pass");
-		return this;
-	}
-
-
-	public HomePage clickViewAll() {
+	public HomePage clickViewAll_new() {
 		click(locateElement(Locators.XPATH,properties.getProperty("HomePage.ViewAll.Xpath")));
 		reportStep("View All clicked successfully", "pass");
 		return this;
@@ -69,7 +60,40 @@ public class HomePage extends ProjectSpecificMethods{
 		return new WorkTypeGroupsPage();
 	}
 
+	public AppLaucherPage clickViewAll() throws IOException 
+	{ 
+		click(Locators.XPATH, properties.getProperty("HomePage.ViewAll.XPath"));
+		reportStep("ViewAll button licked successfully ", "pass");
+		return new AppLaucherPage();
+	}
 
+	public HomePage clickToggleMenu()  {
 
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ToggleMenu.xpath")));
+		reportStep("clickToggleMenu is succes", "pass");
+		return this;
+	}
+
+	public HomePage dashboardAppLauncher()  {
+
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.Applauncher.xpath")));
+		reportStep("dashboardAppLauncher is succes", "pass");
+		return this;
+	}
+
+	public HomePage newDashboardOption(String data)  {
+
+		clearAndType(locateElement(Locators.XPATH, properties.getProperty("HomePage.newDashboardOption.xpath")), data);
+
+		reportStep("newDashboardOption is succes", "pass");
+		return this;
+	}
+
+	public DashboardsPage clickDashboard()  {
+
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ClickDashboard.xpath")));
+		reportStep("clickDashboard is succes", "pass");
+		return new DashboardsPage();
+	}
 
 }
