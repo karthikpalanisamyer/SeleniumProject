@@ -40,7 +40,13 @@ public class HomePage extends ProjectSpecificMethods{
 		return this;
 	}
 
-	
+	public AppLaucherPage clickViewAll() throws IOException 
+	{ 
+		click(Locators.XPATH, properties.getProperty("HomePage.ViewAll.XPath"));
+		reportStep("ViewAll button licked successfully ", "pass");
+		return new AppLaucherPage();
+	}
+
 
 
 
