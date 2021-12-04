@@ -12,22 +12,22 @@ import com.framework.utils.DataLibrary;
 
 public class ProjectSpecificMethods extends SeleniumBase {
 
-	public static Properties pro;
-	
+	public static Properties properties;
+
 	@DataProvider(name = "fetchData", indices = 0)
 	public Object[][] fetchData() throws IOException {
 		return DataLibrary.readExcelData(excelFileName);
 	}
-	
+
 	@BeforeMethod
 	public void preCondition() throws IOException {
-		startApp("chrome", false, "https://login.salesforce.com/");
+
+		FileInputStream fileInputStream=new FileInputStream("./src/main/resources/config.properties");
+		properties=new Properties();
+		properties.load(fileInputStream);
+		//setProp();
+		startApp("chrome", false,properties.getProperty("url"));
 		setNode();
-		FileInputStream fis = new FileInputStream("./src/main/resources/config.properties");		
-		//create object properties file
-		pro =new Properties();		
-		//load the properties file
-		pro.load(fis);
 		
 		
 	}

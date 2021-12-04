@@ -11,28 +11,21 @@ import com.salesforce.pages.LoginPage;
 public class TC001_VerifyLogin extends ProjectSpecificMethods{
 	@BeforeTest
 	public void setValues() {
-		testcaseName = "VerifyLogin";
+		testcaseName = "Verify Login And LogOut";
 		testDescription ="Verify Login functionality with positive data";
-		authors="Hari";
+		authors="Vignesh";
 		category ="Smoke";
-		excelFileName="dLogin";
+		excelFileName="credentials";
 	}
 	
 	@Test(dataProvider = "fetchData")
-	public void runLogin(String username, String password, String dName,String dashName, String disName, String editdisName) throws InterruptedException, IOException {
+	public void runLogin(String username, String password) throws InterruptedException, IOException {
 		new LoginPage()
 		.enterUsername(username)
 		.enterPassword(password)
 		.clickLogin()
-		.verifyHomePage().clickToggleMenu().dashboardAppLauncher()
-		.newDashboardOption(dName).clickDashboard()
-		.clickNewDashboard().enteriframe().enterName(dashName).
-		enterdName(disName).clickSubmit().exitiframe().enteriframe1().
-		clickSave().exitiframe1().getText();
-	/*	.clickDashboard()
-		.searchandSelectDashboard().clickEditDashboard().enteriFrame().editDashboardProp().clearData().
-		enterData(editdisName).clickSubmit().clickSave().exitFrame().clickText().enteriFrame2().clickDone().
-		enterText().exitFrame2();*/
+		.clickProfile()
+		.clickLogout();
 
 	}
 
