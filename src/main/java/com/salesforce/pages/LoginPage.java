@@ -5,20 +5,23 @@ import com.framework.testng.api.base.ProjectSpecificMethods;
 
 public class LoginPage extends ProjectSpecificMethods{
 	
+	
 	public LoginPage enterUsername(String data) {
-		clearAndType(locateElement(Locators.ID, "username"), data);
+		//driver.findElementById(properties.getProperty("LoginPage.Username.Id")).clear();
+		//driver.findElementById(properties.getProperty("LoginPage.Username.Id")).sendKeys(data);
+		clearAndType(locateElement(Locators.ID, properties.getProperty("LoginPage.Username.Id")), data);
 		reportStep(data+" entered successfully","pass");
 		return this;
 	}
 	
 	public LoginPage enterPassword(String data) {
-		clearAndType(locateElement(Locators.ID, "password"), data);
+		clearAndType(locateElement(Locators.ID, properties.getProperty("LoginPage.Password.Id")), data);
 		reportStep(data+" entered successfully","pass");
 		return this;
 	}
 	
 	public HomePage clickLogin() {
-		click(locateElement(Locators.ID, "Login"));
+		click(locateElement(Locators.ID, properties.getProperty("LoginPage.Login.Id")));
 		reportStep("Login button clicked successfully", "pass");
 		return new HomePage();
 	}

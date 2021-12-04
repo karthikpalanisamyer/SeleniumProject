@@ -1,5 +1,7 @@
 package com.salesforce.testcases;
 
+import java.io.IOException;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -9,20 +11,21 @@ import com.salesforce.pages.LoginPage;
 public class TC001_VerifyLogin extends ProjectSpecificMethods{
 	@BeforeTest
 	public void setValues() {
-		testcaseName = "VerifyLogin";
+		testcaseName = "Verify Login And LogOut";
 		testDescription ="Verify Login functionality with positive data";
-		authors="Hari";
+		authors="Vignesh";
 		category ="Smoke";
-		excelFileName="Login";
+		excelFileName="credentials";
 	}
 	
 	@Test(dataProvider = "fetchData")
-	public void runLogin(String username, String password) {
+	public void runLogin(String username, String password) throws InterruptedException, IOException {
 		new LoginPage()
 		.enterUsername(username)
 		.enterPassword(password)
 		.clickLogin()
-		.verifyHomePage();
+		.clickProfile()
+		.clickLogout();
 
 	}
 
