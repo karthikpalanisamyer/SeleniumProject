@@ -47,8 +47,33 @@ public class HomePage extends ProjectSpecificMethods{
 		return new AppLaucherPage();
 	}
 
-
-
-
+	public HomePage clickToggleMenu()  {
+		
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ToggleMenu.xpath")));
+		reportStep("clickToggleMenu is succes", "pass");
+		return this;
+	}
+	
+public HomePage dashboardAppLauncher()  {
+		
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.Applauncher.xpath")));
+		reportStep("dashboardAppLauncher is succes", "pass");
+		return this;
+	}
+	
+	public HomePage newDashboardOption(String data)  {
+		
+		clearAndType(locateElement(Locators.XPATH, properties.getProperty("HomePage.newDashboardOption.xpath")), data);
+		
+		reportStep("newDashboardOption is succes", "pass");
+		return this;
+	}
+	
+	public DashboardsPage clickDashboard()  {
+		
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ClickDashboard.xpath")));
+		reportStep("clickDashboard is succes", "pass");
+		return new DashboardsPage();
+	}
 
 }

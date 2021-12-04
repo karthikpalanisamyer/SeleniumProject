@@ -28,14 +28,17 @@ public class ProjectSpecificMethods extends SeleniumBase {
 		//setProp();
 		startApp("chrome", false,properties.getProperty("url"));
 		setNode();
-
+		
+		
 	}
+	
+	
 	
 	public void postCondition() {
 		close();
 
 	}
-
+	
 	
 
 	
