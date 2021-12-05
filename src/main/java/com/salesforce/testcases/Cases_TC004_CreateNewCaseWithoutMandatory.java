@@ -1,23 +1,21 @@
 package com.salesforce.testcases;
 
 import java.io.IOException;
-
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import com.framework.testng.api.base.ProjectSpecificMethods;
 import com.salesforce.pages.LoginPage;
 
+public class Cases_TC004_CreateNewCaseWithoutMandatory  extends ProjectSpecificMethods {
 
-public class TC002_CreateNewCase extends ProjectSpecificMethods{
 
 	@BeforeTest
 	public void setValues() {
-		testcaseName = "Create new Case";
-		testDescription ="create a new cases in salesforce";
+		testcaseName = "Create new Case Without Mandatory";
+		testDescription ="create a new cases Without Mandatory in salesforce";
 		authors="Vignesh";
-		category ="Sanity";
-		excelFileName="createNewCase";
+		category ="Smoke";
+		excelFileName="createNewCasewithoutMandatory";
 	}
 
 	@Test(dataProvider="fetchData")
@@ -27,24 +25,23 @@ public class TC002_CreateNewCase extends ProjectSpecificMethods{
 		.enterUsername(username)
 		.enterPassword(password)
 		.clickLogin()
-		.clickWaffle() 
-		.ClickViewAll() 
-		.clickSales() 
-		.clickMore() 
+		.clickWaffle()
+		.ClickViewAll()
+		.clickSales()
+		.clickMore()
 		.clickCases()
-		.clickdropButton() 
-		.clickNewCase() 
-		.EnterContactName(name) 
+		.clickdropButton()
+		.clickNewCase()
+		.EnterContactName(name)
 		.selectName(name)
-		.selectCaseOrigin() 
-		.clickEmail() 
-		.selectStatus() 
-		.clickEscalated()
-		.EnterSubject(sub) 
-		.EnterDescription(des) 
-		.clickSave() 
-		.verify();
-
+		.selectCaseOrigin()
+		.clickEmail()
+		.selectStatus()
+		.clickStatusForNone()
+		.EnterSubject(sub)
+		.EnterDescription(des)
+		.clickSaveForWithout()
+		.verifyErrorStatus();
 	}
 
 }

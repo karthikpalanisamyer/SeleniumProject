@@ -77,7 +77,6 @@ public class NewCasePage extends ProjectSpecificMethods {
 		
 		click(Locators.XPATH, properties.getProperty("NewCasePage.clickSave.xpath"));
 			reportStep("Save button clicked successfully ", "pass");
-	
 		return new CaseList();
 	}
 
@@ -88,7 +87,8 @@ public class NewCasePage extends ProjectSpecificMethods {
 
 
 	public NewCasePage verifyErrorStatus(){
-		String verify = getDriver().findElement(By.xpath("//span[text()='Review the errors on this page.']")).getText();
+		
+		String verify = getElementText(locateElement(Locators.XPATH, properties.getProperty("NewCasePage.verifyErrorStatus.xpath")));
 		System.out.println(verify);
 
 		if (verify.contains("errors on this page")) {
@@ -97,6 +97,7 @@ public class NewCasePage extends ProjectSpecificMethods {
 		} else {
 			System.out.println("Case is Created Successfully");
 		}
+		reportStep("verify Error Status successfully", "pass");
 		return this;
 	}
 

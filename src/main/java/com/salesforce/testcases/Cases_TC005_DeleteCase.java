@@ -9,7 +9,7 @@ import com.framework.testng.api.base.ProjectSpecificMethods;
 import com.salesforce.pages.LoginPage;
 
 
-public class TC005_DeleteCase extends ProjectSpecificMethods{
+public class Cases_TC005_DeleteCase extends ProjectSpecificMethods{
 
 	@BeforeTest
 	public void setValues() {
