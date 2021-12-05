@@ -96,7 +96,7 @@ public abstract class Reporter extends DriverInstance {
 				test.get().pass(desc, img);
 			} else if (status.equalsIgnoreCase("fail")) { // additional steps to manage alert pop-up
 				test.get().fail(desc, img);
-				throw new RuntimeException("See the reporter for details.");
+					throw new RuntimeException("See the reporter for details.");
 
 			} else if (status.equalsIgnoreCase("warning")) {
 				test.get().warning(desc, img);
