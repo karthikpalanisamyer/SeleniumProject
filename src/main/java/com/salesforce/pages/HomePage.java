@@ -32,13 +32,23 @@ public class HomePage extends ProjectSpecificMethods{
 	}
 
 
-	public HomePage clickWaffle() throws IOException 
+	public HomePage clickWaffle() 
 	{ 
-		click(Locators.XPATH, properties.getProperty("HomePage.Waffle.XPath"));
-		reportStep("Waffle button licked successfully ", "pass"); 
+		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.Waffle.XPath")));
+		reportStep("Waffle button clicked successfully ", "pass"); 
+		
 
 		return this;
 	}
+	
+	public AppLauncherPage ClickViewAll()
+	{
+		click(locateElement(Locators.XPATH , properties.getProperty("HomePage.ViewAll.XPath")));
+		reportStep("View All clicked successfully ", "pass"); 
+		return new AppLauncherPage();
+	}
+	
+	
 
 	
 
