@@ -31,6 +31,10 @@ public class HomePage extends ProjectSpecificMethods{
 		return this;
 	}
 
+	public SearchPage clickViewAll_k() {
+		click(Locators.XPATH, "//button[text()='View All']");
+		return new SearchPage();
+	}
 
 	public HomePage clickWaffle() throws IOException 
 	{ 
@@ -66,12 +70,7 @@ public class HomePage extends ProjectSpecificMethods{
 		reportStep("ViewAll button licked successfully ", "pass");
 		return new AppLaucherPage();
 	}
-	
-	public SearchPage clickViewAll_k() {
-		click(Locators.XPATH, "//button[text()='View All']");
-		return new SearchPage();
-	}
-	
+
 	public HomePage clickToggleMenu()  {
 
 		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ToggleMenu.xpath")));
@@ -100,5 +99,12 @@ public class HomePage extends ProjectSpecificMethods{
 		reportStep("clickDashboard is succes", "pass");
 		return new DashboardsPage();
 	}
+	public AppLauncherPage ClickViewAll()
+	{
+		click(locateElement(Locators.XPATH , properties.getProperty("HomePage.ViewAll.XPath")));
+		reportStep("View All clicked successfully ", "pass"); 
+		return new AppLauncherPage();
+	}
 
 }
+
