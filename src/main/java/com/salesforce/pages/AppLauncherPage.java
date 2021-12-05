@@ -20,7 +20,7 @@ public class AppLauncherPage extends ProjectSpecificMethods {
 	
 	public SalesHomePage clickSales() throws InterruptedException{
 
-		click(Locators.XPATH, properties.getProperty("AppLauncherPage.clickSales.XPath"));
+		click(Locators.XPATH, properties.getProperty("AppLaucherPage.clickSales.XPath"));
 		
 			reportStep("Sales button licked successfully ", "pass");
 

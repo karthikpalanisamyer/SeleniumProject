@@ -28,7 +28,7 @@ public class TC005_DeleteCase extends ProjectSpecificMethods{
 		.enterPassword(password)
 		.clickLogin()
 		.clickWaffle()
-		.clickViewAll()
+		.ClickViewAll()
 		.clickSales()
 		.clickMore()
 		.clickCases()

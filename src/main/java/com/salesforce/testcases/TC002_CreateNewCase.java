@@ -28,7 +28,7 @@ public class TC002_CreateNewCase extends ProjectSpecificMethods{
 		.enterPassword(password)
 		.clickLogin()
 		.clickWaffle() 
-		.clickViewAll() 
+		.ClickViewAll() 
 		.clickSales() 
 		.clickMore() 
 		.clickCases()
