@@ -66,7 +66,12 @@ public class HomePage extends ProjectSpecificMethods{
 		reportStep("ViewAll button licked successfully ", "pass");
 		return new AppLaucherPage();
 	}
-
+	
+	public SearchPage clickViewAll_k() {
+		click(Locators.XPATH, "//button[text()='View All']");
+		return new SearchPage();
+	}
+	
 	public HomePage clickToggleMenu()  {
 
 		click(locateElement(Locators.XPATH, properties.getProperty("HomePage.ToggleMenu.xpath")));
