@@ -1,6 +1,9 @@
 package com.salesforce.pages;
 
 import java.io.IOException;
+
+import org.openqa.selenium.WebElement;
+
 import com.framework.selenium.api.design.Locators;
 import com.framework.testng.api.base.ProjectSpecificMethods;
 
@@ -20,18 +23,59 @@ public class CasesPage extends ProjectSpecificMethods{
 		return new NewCasePage();
 	}
 	
-	/*
+	public CasesPage clickFirstItemForDelete() throws InterruptedException{
+
+		clickUsingJs(locateElement(Locators.XPATH, properties.getProperty("CasesPage.clickFirstItemForDelete.xpath")));
+		reportStep("First Item has clicked successfully for Delete ", "pass");
+		return this;
+	}
+
+	public CasesPage clickDelete() throws InterruptedException{
+		
+		click(Locators.XPATH, properties.getProperty("CasesPage.clickDelete.xpath"));
+		reportStep("Delete button has clicked successfully", "pass");
+		return this;
+	}
+
+	public CasesPage clickConfirmDelete() throws InterruptedException{
+		click(Locators.XPATH, properties.getProperty("CasesPage.clickConfirmDelete.xpath"));
+		reportStep("Confirm Delete button has clicked successfully", "pass");
+		return this;
+	}
+
+
+	public CasesPage verifyDeleteStatus(){
+	
+		WebElement locateElement = locateElement(Locators.XPATH, properties.getProperty("CasesPage.verifyDeleteStatus.xpath"));
+		String deleteVerify = getElementText(locateElement);
+
+		System.out.println(deleteVerify);
+
+		if (deleteVerify.contains("deleted")) {
+			System.out.println(" The case with your name is there in the application");
+
+		} else {
+			System.out.println("case with your name is not there in the application");
+		}
+		
+		reportStep("verified successfully ", "info");
+		return this;
+	}
+	
 
 	public CasesPage findCount() throws InterruptedException{
-		WebElement ele = getDriver().findElementByXPath(properties.getProperty("CasesPage.findCount.xpath"));
+		
+		WebElement locateElement = locateElement(Locators.XPATH, properties.getProperty("CasesPage.findCount.xpath"));
 		Thread.sleep(10000);
-		String count = ele.getText().replaceAll("\\D","");
-
+		String count = getElementText(locateElement).replaceAll("\\D","");
 		System.out.println(count);
 		recordsCount = Integer.parseInt(count);
 		System.out.println(recordsCount);
+		
 		return this;
 	}
+	
+	
 
 	public CasesPage scrollDownAndclickEditDropdown() throws InterruptedException{
 
@@ -41,13 +85,13 @@ public class CasesPage extends ProjectSpecificMethods{
 			System.out.println("dummyText :"+dummyText);
 			String replace = dummyText.replace("dummy", String.valueOf(i));
 			System.out.println("After dummyText :"+replace);
-
-
-
-			WebElement row =  getDriver().findElementByXPath(replace);
+			
+			WebElement row =locateElement(Locators.XPATH, replace);
+			
 			Thread.sleep(3000);
+			
 			executor.executeScript("arguments[0].scrollIntoView();", row);
-			text = row.getText();
+			String text = row.getText();
 
 
 			String dummyTextEdit=properties.getProperty("CasesPage.EditDropdown.xpath");
@@ -57,21 +101,22 @@ public class CasesPage extends ProjectSpecificMethods{
 
 			if (!text.equals("Working")){ 
 				Thread.sleep(3000); 
-				getDriver().findElementByXPath(replaceText).click();
+				click(Locators.XPATH, replaceText);
 				break;
 			}
 		}
 		return this;
 	}
-
+	/*
 	public CasesPage clearSearch(){
 		getDriver().findElementByXPath(properties.getProperty("CasesPage.clearSearch.xpath")).clear();
 		return this;
 	}
-
+	
 	public CasesPage EnterCaseNumberinSearch() throws InterruptedException{
 
-		getDriver().findElementByXPath(properties.getProperty("CasesPage.EnterCaseNumberinSearch.xpath")).sendKeys(caseNumber,Keys.ENTER);
+		
+		clearAndType(locateElement(Locators.XPATH, properties.getProperty("CasesPage.EnterCaseNumberinSearch.xpath")), caseNumber);
 		Thread.sleep(2000);
 		return this;
 	}
@@ -100,39 +145,7 @@ public class CasesPage extends ProjectSpecificMethods{
 		return new EditCasePage(properties);
 	}
 
-	public CasesPage clickFirstItemForDelete() throws InterruptedException{
-
-		executor.executeScript("arguments[0].click();",getDriver().findElementByXPath(properties.getProperty("CasesPage.clickFirstItemForDelete.xpath")));
-		return this;
-	}
-
-
-	public CasesPage clickDelete() throws InterruptedException{
-
-		getDriver().findElementByXPath(properties.getProperty("CasesPage.clickDelete.xpath")).click();
-		return this;
-	}
-
-	public CasesPage clickConfirmDelete() throws InterruptedException{
-
-		getDriver().findElementByXPath(properties.getProperty("CasesPage.clickConfirmDelete.xpath")).click();
-		return this;
-	}
-
-
-	public CasesPage verifyDeleteStatus(){
-		//Verify the case with your name is deleted or not
-		String deleteVerify = getDriver().findElementByXPath(properties.getProperty("CasesPage.verifyDeleteStatus.xpath")).getText();
-		System.out.println(deleteVerify);
-
-		if (deleteVerify.contains("deleted")) {
-			System.out.println(" The case with your name is there in the application");
-
-		} else {
-			System.out.println("case with your name is not there in the application");
-		}
-		return this;
-	}
+	
 
 
 */

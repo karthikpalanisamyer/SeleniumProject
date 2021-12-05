@@ -9,7 +9,7 @@ import com.framework.testng.api.base.ProjectSpecificMethods;
 import com.salesforce.pages.LoginPage;
 
 
-public class RunCreateNewCase extends ProjectSpecificMethods{
+public class TC002_CreateNewCase extends ProjectSpecificMethods{
 
 	@BeforeTest
 	public void setValues() {
