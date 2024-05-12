@@ -24,6 +24,7 @@ public class IrctcBooking {
 		
 		driver.get("https://www.irctc.co.in/");
 		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		driver.findElement(By.xpath("//a[contains(@class,'search_btn loginText')]")).click();
