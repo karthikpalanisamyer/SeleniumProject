@@ -26,7 +26,6 @@ public class IrctcBooking {
 		driver.manage().window().maximize();
 		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
 		driver.findElement(By.xpath("//a[contains(@class,'search_btn loginText')]")).click();
 		driver.findElement(By.xpath("//input[@formcontrolname='userid']")).sendKeys("GUNAKARTHI");
 		driver.findElement(By.xpath("(//input[contains(@class,'form-control input-box')])[2]")).sendKeys("Irctc@1100");
